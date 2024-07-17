@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .product-image {
+            transition: transform 0.3s ease-in-out;
+        }
+        .product-image:hover {
+            transform: scale(1.1);
+        }
+        .add-to-cart-btn {
+            background-color: #00b3ff;
+            color: white;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        .add-to-cart-btn:hover {
+            background-color: #1e9fd2;
+        }
+        .cart-count {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 0 6px;
+            font-size: 12px;
+            vertical-align: top;
+            margin-left: -10px;
+        }
+        .brand-name {
+      font-family: 'Dancing Script', cursive;
+    }
+    .brand-tagline {
+      font-family: 'Dancing Script', cursive;
+      display: block; /* Ensure the tagline is below the brand name */
+      font-size: 1.25rem; /* Adjust the size as needed */
+    }
+
+    .navbar-transparent {
+            background-color: rgba(31, 41, 55, 0.8); /* rgba equivalent of bg-gray-800 with opacity */
+            transition: background-color 0.3s ease, padding 0.3s ease;
+        }
+        .navbar-shrink {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-zinc-700 ">
+
+    <nav class="bg-gray-800 text-white pt-3 px-10">
+        <div class="flex items-center justify-between px-8 py-4">
+            <div class="flex items-center space-x-6">
+                <img src="./images/logo.jpg" alt="Logo" class="h-16">
+                <button class="category-btn nav-button bg-transparent border-none border-white text-white py-2 px-4 transition duration-300 hover:bg-white hover:text-gray-800" data-category="Men">MEN'S</button>
+                <button class="category-btn nav-button bg-transparent border-none border-white text-white py-2 px-4 transition duration-300 hover:bg-white hover:text-gray-800" data-category="Women">WOMEN'S</button>
+                <button class="category-btn nav-button bg-transparent border-none border-white text-white py-2 px-4 transition duration-300 hover:bg-white hover:text-gray-800" data-category="Kids">KIDS</button>
+            </div>
+            <a href="#" id="brandName" class="category-btn text-6xl font-bold brand-name " data-category="ALL">Dhanshree <span class="text-sm font-serif">the fashion world</span> </a>
+            <div class="flex items-center space-x-6">
+                <input id="searchBar" type="text" class="py-2 px-4 rounded-full bg-white text-black" placeholder="Search...">
+                <div class="relative">
+                    <i id="cartIcon" class="fas fa-shopping-bag text-xl cursor-pointer transition duration-300 hover:text-yellow-500"></i>
+                    <span id="cartCount" class="cart-count">0</span>
+                </div>
+                <i class="fas fa-heart text-xl cursor-pointer transition duration-300 hover:text-red-500"></i>
+                <i class="fas fa-user text-xl cursor-pointer transition duration-300 hover:text-gray-300"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Grid -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-16 mt-6">
+        <!-- Products will be dynamically inserted here -->
+    </div>
+
+    <!-- Cart Page -->
+    <div id="cartPage" class="hidden p-16 mt-6">
+        <h1 class="text-2xl font-bold mb-4">Shopping Cart</h1>
+        <div id="cartItems" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <div class="mt-8">
+            <h2 class="text-xl font-bold">Total: <span id="cartTotal">₹0</span></h2>
+            <button id="checkoutBtn" class="mt-4 py-2 px-4 bg-blue-500 text-white rounded">Checkout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
